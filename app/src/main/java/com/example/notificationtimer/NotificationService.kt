@@ -42,11 +42,10 @@ class NotificationService : Service() {
                     val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                     val importance = NotificationManager.IMPORTANCE_HIGH
                     val notificationChannel = NotificationChannel(channelId, "notification_timer", importance)
-                    notificationChannel.enableLights(true)
                     notificationChannel.lightColor = Color.RED
                     notificationChannel.enableVibration(true)
                     notificationChannel.description = getString(R.string.app_name)
-                    notificationChannel.vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
+                    notificationChannel.vibrationPattern = longArrayOf(0)
                     mBuilder.setChannelId(channelId)
                     notificationManager.createNotificationChannel(notificationChannel)
                 }
