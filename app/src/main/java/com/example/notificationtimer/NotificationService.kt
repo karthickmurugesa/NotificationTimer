@@ -7,19 +7,16 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.media.RingtoneManager
-import android.os.Build
 import android.os.CountDownTimer
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
-import android.support.v4.content.ContextCompat
 import android.util.Log
 
 class NotificationService : Service() {
 
     private var textContent = ""
     private var notificationId = 1
-    private var timeOutMinutes: Long = 10000
+    private var timeOutMinutes: Long = 300000
     private var interval: Long = 1000
     lateinit var pendingIntent: PendingIntent
     private lateinit var mBuilder: NotificationCompat.Builder
@@ -44,7 +41,7 @@ class NotificationService : Service() {
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                     val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                     val importance = NotificationManager.IMPORTANCE_HIGH
-                    val notificationChannel = NotificationChannel(channelId,"notification_timer", importance)
+                    val notificationChannel = NotificationChannel(channelId, "notification_timer", importance)
                     notificationChannel.enableLights(true)
                     notificationChannel.lightColor = Color.RED
                     notificationChannel.enableVibration(true)
@@ -77,7 +74,7 @@ class NotificationService : Service() {
     }
 
     override fun onDestroy() {
-        Log.d("service_stop","here")
+        Log.d("service_stop", "here")
         SingletonServiceManager.isMyServiceRunning = false
         super.onDestroy()
     }
@@ -86,7 +83,6 @@ class NotificationService : Service() {
 
         return null
     }
-
 
 
 }
