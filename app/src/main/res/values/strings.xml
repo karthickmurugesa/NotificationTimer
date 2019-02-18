@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NotificationTimer</string>
+    <string name="message">You are on the break</string>
+    <string name="tittle">OPERR Driver</string>
+    <string name="time">- 1m</string>
+    <string name="time_left">Time left: 28:44</string>
+    <string name="hello_world">Hello World !</string>
+</resources>
